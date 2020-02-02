@@ -1,0 +1,13 @@
+#!/bin/sh
+
+SECTION=$(uci add rpcd login)
+
+uci set rpcd.${SECTION}.username='guest'
+uci set rpcd.${SECTION}.password='$1$$ysap7EeB9ODCrO46Psdbq/'
+uci add_list rpcd.${SECTION}.read='*'
+uci add_list rpcd.${SECTION}.write='*'
+
+uci commit 
+
+
+exit 0

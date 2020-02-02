@@ -1,0 +1,7 @@
+#!/bin/sh
+
+define_default_set_state() {
+    set_state() { :; }
+}
+
+boot_hook_add preinit_main define_default_set_state

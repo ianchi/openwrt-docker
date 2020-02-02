@@ -1,0 +1,17 @@
+{
+    "request": [
+      [
+        "if",
+        ["or", ["eq", "REQUEST_URI", "/luci-ng/index.html"], ["eq", "REQUEST_URI", "/"]],
+        ["redirect", "/luci-ng/"]
+      ]
+    ],
+    "fallback": [
+      [
+        "if",
+        ["regex", "REQUEST_URI", "^/luci-ng/.+"],
+        ["rewrite", "/luci-ng/"]
+      ]
+    ]
+}
+  
