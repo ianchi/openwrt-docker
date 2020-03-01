@@ -1,3 +1,4 @@
 #!/bin/bash
 
-docker run -t -d --rm -p 4080:80 -p 4022:22 --device=/dev/kmsg:/dev/kmsg --name=openwrt openwrt:luci2-rpc
+
+docker start openwrt || docker run -d --privileged -p 9443:443 -p 9080:80 -p 9022:22 --name openwrt -v /mnt/host/usr/share/rpcd/luci2:/usr/share/rpcd/luci2  ianchi74/openwrt:luci2-rpc

@@ -1,0 +1,10 @@
+FROM ianchi74/openwrt:luci-19.07.1
+
+# add luci-ng files
+COPY ipk/*.ipk /tmp/ipk/
+COPY share /usr/share/
+RUN cd /www && mkdir luci-ng
+RUN opkg install rpcd-mod-file rpcd-mod-iwinfo rpcd-mod-rpcsys && \
+    opkg install uhttpd-mod-ubus && \
+    opkg install /tmp/ipk/*.ipk && \
+    rm -rf /tmp/ipk 
