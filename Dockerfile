@@ -17,7 +17,7 @@ RUN echo -e "administrator\nadministrator" | passwd root
 RUN mkdir /var/lock
 
 
-RUN opkg update && opkg install luci-mod-admin-full
+RUN opkg update && opkg install luci uhttpd-mod-ubus
 
 
 # using exec format so that /sbin/init is proc 1 (see procd docs)
